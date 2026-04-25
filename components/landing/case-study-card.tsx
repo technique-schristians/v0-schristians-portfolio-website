@@ -59,16 +59,12 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         >
           {/* All cards crop their screenshots to a shared 4:3 box so every
               image renders at exactly the same height — taller dashboards
-              like Fonda are cropped from the bottom. */}
-          <div
-            className="relative h-full w-full overflow-hidden rounded-xl shadow-[-24px_30px_60px_-20px_rgba(0,0,0,0.35),24px_30px_60px_-20px_rgba(0,0,0,0.35)]"
-            style={{
-              maskImage:
-                "radial-gradient(140% 110% at 50% 50%, black 55%, transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(140% 110% at 50% 50%, black 55%, transparent 100%)",
-            }}
-          >
+              like Fonda are cropped from the bottom. The radial mask was
+              previously clipping the bottom corners of shorter screenshots
+              (notably Automation Anywhere) so they appeared to lose their
+              border-radius — we use a clean rounded card with a strong
+              wraparound shadow instead. */}
+          <div className="relative h-full w-full overflow-hidden rounded-xl shadow-[-24px_30px_60px_-20px_rgba(0,0,0,0.45),24px_30px_60px_-20px_rgba(0,0,0,0.45)]">
             <Image
               src={study.image}
               alt={study.imageAlt}

@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils"
 const LINKEDIN_URL = "https://www.linkedin.com/in/stevechristians/"
 /** Official LinkedIn brand blue. */
 const LINKEDIN_BLUE = "#0A66C2"
-const LINKEDIN_BLUE_HOVER = "#084a91"
 
 /**
  * Site-wide header. Solid white background, three-Cs logo on the left,
@@ -58,12 +57,7 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1 md:flex">
           <Link
             href="/"
-            className={cn(
-              "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-              pathname === "/"
-                ? "bg-foreground text-background"
-                : "text-foreground/80 hover:bg-foreground/5",
-            )}
+            className="rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5"
           >
             Home
           </Link>
@@ -78,12 +72,7 @@ export function SiteHeader() {
               aria-haspopup="true"
               aria-expanded={csOpen}
               onClick={() => setCsOpen((v) => !v)}
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                pathname.startsWith("/case-studies")
-                  ? "bg-foreground text-background"
-                  : "text-foreground/80 hover:bg-foreground/5",
-              )}
+              className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5"
             >
               Case Studies
               <ChevronDown
@@ -121,15 +110,14 @@ export function SiteHeader() {
             </div>
           </div>
 
-          {/* LinkedIn CTA */}
+          {/* LinkedIn CTA — outline variant: white fill, LinkedIn-blue
+              border, icon, and label. */}
           <a
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-px"
-            style={{ backgroundColor: LINKEDIN_BLUE }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LINKEDIN_BLUE_HOVER)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LINKEDIN_BLUE)}
+            className="ml-3 inline-flex items-center gap-2 rounded-full border bg-white px-4 py-2 text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:bg-[#F3F8FE]"
+            style={{ borderColor: LINKEDIN_BLUE, color: LINKEDIN_BLUE }}
           >
             <Linkedin className="h-4 w-4" fill="currentColor" strokeWidth={0} />
             Let&apos;s stay in touch
@@ -178,8 +166,8 @@ export function SiteHeader() {
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white"
-            style={{ backgroundColor: LINKEDIN_BLUE }}
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border bg-white px-4 py-2.5 text-sm font-semibold"
+            style={{ borderColor: LINKEDIN_BLUE, color: LINKEDIN_BLUE }}
           >
             <Linkedin className="h-4 w-4" fill="currentColor" strokeWidth={0} />
             Let&apos;s stay in touch
