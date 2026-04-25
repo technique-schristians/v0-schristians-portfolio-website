@@ -19,15 +19,15 @@ export function BioSection() {
 
       <DustParticles count={50} color="#F6F4EE" intensity={0.4} />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-6 py-24 md:px-10">
-        <div className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.22em] text-[var(--alabaster)]/70">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col gap-6 px-6 pt-40 pb-20 md:gap-7 md:px-10 md:pt-44 md:pb-24">
+        <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-[var(--alabaster)]/70 md:text-sm">
           <span className="h-px w-10 bg-[var(--alabaster)]/60" />
           Portfolio · 2026
         </div>
 
         <h1
           id="bio-heading"
-          className="font-serif text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[1.02] tracking-tight text-balance"
+          className="font-serif text-[clamp(2rem,5.2vw,4.75rem)] font-medium leading-[1.05] tracking-tight text-balance"
         >
           Hi, I&rsquo;m Steve.
           <br />
@@ -36,7 +36,7 @@ export function BioSection() {
           </span>
         </h1>
 
-        <p className="max-w-[58ch] text-pretty text-lg leading-relaxed text-[var(--alabaster)]/85 md:text-xl">
+        <p className="max-w-[60ch] text-pretty text-base leading-relaxed text-[var(--alabaster)]/85 md:text-lg">
           Twenty years building 0-to-1 products across startups, B2B SaaS, and Salesforce.
           I specialize in AI-native UX — agentic workflows, human-in-the-loop systems, and
           scalable design patterns. Player-coach by trade: I define product vision, run
@@ -44,14 +44,14 @@ export function BioSection() {
           revenue inside Commerce, Privacy, and Automation.
         </p>
 
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-2 text-sm text-[var(--alabaster)]/75">
+        <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-1 text-xs text-[var(--alabaster)]/75 md:text-sm">
           <Tag>Staff Product Designer</Tag>
           <Tag>Director of Design</Tag>
           <Tag>Teams of 1–6</Tag>
           <Tag>Enterprise SaaS</Tag>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 text-sm font-medium text-[var(--alabaster)]/80">
+        <div className="mt-4 flex items-center gap-3 text-xs font-medium text-[var(--alabaster)]/80 md:mt-6 md:text-sm">
           <ArrowDown className="h-4 w-4 animate-bounce" aria-hidden="true" />
           <span className="uppercase tracking-[0.18em]">Scroll for case studies</span>
         </div>

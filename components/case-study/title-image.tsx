@@ -31,11 +31,15 @@ export function TitleImage({ study }: { study: CaseStudy }) {
           </p>
         </motion.div>
 
+        {/* Hero screenshot. The image floats off the page like a real
+            artifact: square bottom edge (no radius bottom-left / bottom-right)
+            and a strong wraparound shadow that's clearly visible on the
+            left and the right of the image. */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="mt-12 overflow-hidden rounded-2xl border border-border bg-[var(--alabaster)] shadow-[0_24px_60px_-20px_rgba(53,53,53,0.25)] md:mt-16"
+          className="mt-12 overflow-hidden rounded-t-2xl border border-b-0 border-border bg-[var(--alabaster)] shadow-[-32px_28px_60px_-12px_rgba(0,0,0,0.22),32px_28px_60px_-12px_rgba(0,0,0,0.22)] md:mt-16"
         >
           <div className="relative aspect-[16/10] w-full md:aspect-[16/9]">
             <Image

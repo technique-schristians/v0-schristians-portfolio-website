@@ -1,16 +1,15 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { motion } from "motion/react"
-import { ArrowUpRight } from "lucide-react"
 import type { CaseStudy } from "@/lib/case-studies"
 import { CaseStudySection } from "./section"
 
 /**
  * Design section. Two-column on desktop: copy on the left at ~60%, image
- * panel on the right at ~40%. Image fades softly into the page background
- * to echo the home-page treatment.
+ * panel on the right at ~40%. The image is rendered as a clean,
+ * fully-opaque artifact (no gradient or transparency) — just a soft drop
+ * shadow that lifts it off the alabaster background.
  */
 export function Design({ study }: { study: CaseStudy }) {
   return (
@@ -34,18 +33,6 @@ export function Design({ study }: { study: CaseStudy }) {
               </p>
             </motion.div>
           ))}
-
-          <div className="pt-2">
-            <Link
-              href={study.extendedStudyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-[var(--charcoal)] px-6 py-3 text-sm font-medium text-[var(--charcoal)] transition-all duration-300 hover:bg-[var(--charcoal)] hover:text-[var(--alabaster)]"
-            >
-              View Design
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
         </div>
 
         <motion.div
@@ -62,15 +49,6 @@ export function Design({ study }: { study: CaseStudy }) {
               fill
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover object-top"
-            />
-            {/* soft fade into the alabaster background */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, transparent 55%, var(--alabaster) 100%)",
-              }}
             />
           </div>
         </motion.div>

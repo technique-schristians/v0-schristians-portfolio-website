@@ -3,15 +3,19 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ChevronDown, Linkedin, Menu, X } from "lucide-react"
 import { caseStudies } from "@/lib/case-studies"
 import { Logo } from "@/components/logo"
 import { cn } from "@/lib/utils"
 
+const LINKEDIN_URL = "https://www.linkedin.com/in/stevechristians/"
+/** Official LinkedIn brand blue. */
+const LINKEDIN_BLUE = "#0A66C2"
+const LINKEDIN_BLUE_HOVER = "#084a91"
+
 /**
- * Site-wide header. Renders the three-Cs logo on the left, plus Home and
- * a Case Studies dropdown on the right. The header is mounted in the root
- * layout so every page picks it up — including the case study sub-pages.
+ * Site-wide header. Solid white background, three-Cs logo on the left,
+ * Home + Case Studies dropdown on the right, plus the LinkedIn CTA.
  */
 export function SiteHeader() {
   const pathname = usePathname()
@@ -35,18 +39,18 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300 backdrop-blur-md",
+        "fixed inset-x-0 top-0 z-50 bg-white transition-shadow duration-300",
         scrolled
-          ? "bg-background/85 border-b border-border/60 shadow-sm shadow-black/5"
-          : "bg-background/60 border-b border-transparent",
+          ? "border-b border-border/60 shadow-sm shadow-black/5"
+          : "border-b border-border/40",
       )}
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:px-10">
         <Link
           href="/"
-          className="group inline-flex items-center gap-3 font-serif text-lg font-medium text-foreground"
+          className="inline-flex items-center gap-3 font-serif text-lg font-medium text-foreground"
         >
-          <Logo size={36} className="text-foreground transition-transform duration-500 group-hover:rotate-12" />
+          <Logo size={36} color="var(--charcoal)" />
           <span className="hidden sm:inline tracking-tight">Steve Christians</span>
         </Link>
 
@@ -100,7 +104,7 @@ export function SiteHeader() {
             >
               <ul
                 role="menu"
-                className="overflow-hidden rounded-xl border border-border bg-background shadow-lg shadow-black/5"
+                className="overflow-hidden rounded-xl border border-border bg-white shadow-lg shadow-black/5"
               >
                 {caseStudies.map((study) => (
                   <li key={study.slug} role="none">
@@ -116,6 +120,20 @@ export function SiteHeader() {
               </ul>
             </div>
           </div>
+
+          {/* LinkedIn CTA */}
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-px"
+            style={{ backgroundColor: LINKEDIN_BLUE }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LINKEDIN_BLUE_HOVER)}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LINKEDIN_BLUE)}
+          >
+            <Linkedin className="h-4 w-4" fill="currentColor" strokeWidth={0} />
+            Let&apos;s stay in touch
+          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -124,7 +142,7 @@ export function SiteHeader() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-foreground transition-colors hover:bg-foreground/5 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:bg-foreground/5 md:hidden"
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -133,7 +151,7 @@ export function SiteHeader() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "md:hidden overflow-hidden border-b border-border bg-background transition-[max-height,opacity] duration-300",
+          "md:hidden overflow-hidden border-b border-border bg-white transition-[max-height,opacity] duration-300",
           mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
         )}
       >
@@ -156,6 +174,16 @@ export function SiteHeader() {
               {study.navTitle}
             </Link>
           ))}
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white"
+            style={{ backgroundColor: LINKEDIN_BLUE }}
+          >
+            <Linkedin className="h-4 w-4" fill="currentColor" strokeWidth={0} />
+            Let&apos;s stay in touch
+          </a>
         </nav>
       </div>
     </header>

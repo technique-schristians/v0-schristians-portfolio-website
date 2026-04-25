@@ -57,13 +57,16 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             imageOnLeft ? "md:order-1" : "md:order-2",
           )}
         >
+          {/* All cards crop their screenshots to a shared 4:3 box so every
+              image renders at exactly the same height — taller dashboards
+              like Fonda are cropped from the bottom. */}
           <div
-            className="relative h-full w-full"
+            className="relative h-full w-full overflow-hidden rounded-xl shadow-[-24px_30px_60px_-20px_rgba(0,0,0,0.35),24px_30px_60px_-20px_rgba(0,0,0,0.35)]"
             style={{
               maskImage:
-                "radial-gradient(120% 100% at 50% 45%, black 30%, transparent 92%)",
+                "radial-gradient(140% 110% at 50% 50%, black 55%, transparent 100%)",
               WebkitMaskImage:
-                "radial-gradient(120% 100% at 50% 45%, black 30%, transparent 92%)",
+                "radial-gradient(140% 110% at 50% 50%, black 55%, transparent 100%)",
             }}
           >
             <Image
@@ -72,7 +75,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
               fill
               priority={index <= 2}
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain object-center"
+              className="object-cover object-top"
             />
           </div>
         </motion.div>

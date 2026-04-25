@@ -31,7 +31,7 @@ export function Summary({ study }: { study: CaseStudy }) {
             href={study.extendedStudyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-[var(--charcoal)] px-6 py-3 text-sm font-medium text-[var(--alabaster)] transition-all duration-300 hover:bg-[var(--teal)] hover:shadow-[0_8px_30px_rgba(60,110,113,0.35)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[var(--navy)] px-6 py-3 text-sm font-medium text-[var(--alabaster)] transition-all duration-300 hover:bg-[#16314D] hover:shadow-[0_8px_30px_rgba(27,58,91,0.35)]"
           >
             View Extended Study
             <ExternalLink
