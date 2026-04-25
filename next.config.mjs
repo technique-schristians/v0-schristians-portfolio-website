@@ -3,6 +3,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  output: 'export', // This is the magic line
   images: {
     unoptimized: true,
   },
