@@ -47,8 +47,8 @@ export function BioSection() {
         <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-1 text-xs text-[var(--alabaster)]/75 md:text-sm">
           <Tag>Staff Product Designer</Tag>
           <Tag>Director of Design</Tag>
-          <Tag>Teams of 1–6</Tag>
-          <Tag>Enterprise SaaS</Tag>
+          <Tag>Startups &amp; Enterprise SaaS</Tag>
+          <Tag>Managed team from 1&ndash;6</Tag>
         </div>
 
         <div className="mt-4 flex items-center gap-3 text-xs font-medium text-[var(--alabaster)]/80 md:mt-6 md:text-sm">
